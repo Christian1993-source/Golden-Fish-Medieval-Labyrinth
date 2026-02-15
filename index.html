@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr. Mercado Game Simulator - Golden Fish Medieval Labyrinth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Cinzel:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="scene-bg" aria-hidden="true">
+      <div class="aurora a1"></div>
+      <div class="aurora a2"></div>
+      <div class="grid-layer"></div>
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+    </div>
+
+    <main class="page-shell">
+      <header class="hud-surface">
+        <section class="title-bar" aria-label="Game title">
+          <div class="title-badge">Mr. Mercado Game Simulator</div>
+          <h1>Golden Fish Medieval Labyrinth</h1>
+          <p>Scientific cartoon style interface with precision game controls</p>
+        </section>
+
+        <section class="control-grid" aria-label="Main controls">
+          <button id="startBtn" class="ui-btn btn-primary" type="button">Start</button>
+          <button id="resetBtn" class="ui-btn btn-secondary" type="button">Reset</button>
+
+          <label class="field-label" for="levelSelect">Level</label>
+          <select id="levelSelect" class="ui-select"></select>
+
+          <button id="soundToggleBtn" class="ui-btn btn-ghost is-off" type="button">Sound: Off</button>
+          <button id="reduceEffectsBtn" class="ui-btn btn-ghost" type="button">Reduce Effects</button>
+        </section>
+
+        <section class="status-strip" aria-label="Game status">
+          <div class="status-card">
+            <span class="status-label">Time</span>
+            <span id="timeValue" class="status-value">00:00</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Moves</span>
+            <span id="movesValue" class="status-value">0</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Stage</span>
+            <span id="levelProgress" class="status-value">1 / 9</span>
+          </div>
+          <div class="status-card wide">
+            <span class="status-label">Current Level</span>
+            <span id="levelName" class="status-value small">-</span>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Score</span>
+            <span id="scoreValue" class="status-value">Score: 0</span>
+          </div>
+        </section>
+      </header>
+
+      <section class="board-shell" aria-label="Game board">
+        <canvas id="gameCanvas" width="400" height="400" aria-label="Golden Fish Medieval Labyrinth game board"></canvas>
+
+        <div id="overlay" class="overlay hidden" role="dialog" aria-live="polite">
+          <div class="overlay-card">
+            <h2 id="overlayTitle"></h2>
+            <p id="overlayMessage"></p>
+            <button id="overlayAction" class="ui-btn btn-primary" type="button">Continue</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./levels.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
